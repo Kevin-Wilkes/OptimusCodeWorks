@@ -373,3 +373,8 @@ export function setupMermaidZoom() {
 }
 
 setupMermaidZoom();
+
+// Diagrams are now drawn in the visitor's browser after the page loads (see mermaidClient()
+// in astro.config.mjs), so run the setup again once they exist. Already-bound diagrams are
+// skipped via `data-zoom-bound`, so running it more than once is safe.
+document.addEventListener('mermaid:rendered', () => setupMermaidZoom());
