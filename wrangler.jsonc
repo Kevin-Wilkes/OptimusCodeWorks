@@ -1,0 +1,14 @@
+// Cloudflare Workers settings for optimuscodeworks.com.
+// The site is fully static: `npm run build` writes plain HTML/CSS/JS to ./dist,
+// and Cloudflare serves those files directly. No server code or Astro adapter is needed.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Must match the Worker's name in the Cloudflare dashboard.
+  "name": "optimuscodeworks",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    // Show the site's own 404 page for addresses that don't exist.
+    "not_found_handling": "404-page"
+  }
+}
